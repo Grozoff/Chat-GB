@@ -33,11 +33,9 @@ const App = () => {
   return (
     <div className="Message">
       <header className="Message-header">
-        Messages:
         {messageList.map((message) =>
           <div>
-            <h4>Message: {message.text}</h4>
-            <h5>Author: {message.author}</h5>
+            <h4>Message from {message.author}: {message.text}</h4>
             <hr />
           </div>)}
         <button onClick={addMessage}>Add message</button>
