@@ -39,7 +39,7 @@ const App = () => {
             <hr />
           </div>)}
         <button onClick={addMessage}>Add message</button>
-        <button onClick={removeMessages}>Remove all messages</button>
+        <button onClick={removeMessages}>Remove new messages</button>
         <input value={value} onChange={e => setValue(e.target.value)}></input>
       </header>
     </div>
