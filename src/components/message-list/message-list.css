@@ -1,8 +1,5 @@
-.Message {
+.Message-list {
   text-align: center;
-}
-
-.Message-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;

@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { MessageList } from "./components";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const App = () => {
+  return <MessageList />;
+};
 
 root.render(
   <React.StrictMode>
