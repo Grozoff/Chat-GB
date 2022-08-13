@@ -1,16 +1,18 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { MessageList } from "./components";
+import { ThemeProvider, createTheme } from "@mui/material"
+import { MessageList, Layout, Header, ChatList } from "./components";
+import "./global.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const App = () => {
-  return <MessageList />;
-};
+const theme = createTheme()
 
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <Layout
+      messages={<MessageList />}
+      header={<Header />}
+      chats={<ChatList />}
+    />
+  </ThemeProvider>
 );
