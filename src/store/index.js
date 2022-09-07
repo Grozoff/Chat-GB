@@ -7,6 +7,10 @@ import { logger, timeScheduler, botMessage } from "./middlewares";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { getPublicApi } from "../api/gists";
+import { gistsReducer } from "./gists";
+
+const api = { getPublicApi };
 
 const persistConfig = {
   key: "gbchat",
@@ -21,13 +25,19 @@ const persistedReducer = persistReducer(
     profile: profileReducer,
     conversations: conversationsReducer,
     messages: messagesReducer,
+    gists: gistsReducer,
   })
 );
 
 export const store = createStore(
   persistedReducer,
   compose(
-    applyMiddleware(logger, timeScheduler, botMessage, thunk),
+    applyMiddleware(
+      logger,
+      timeScheduler,
+      botMessage,
+      thunk.withExtraArgument(api)
+    ),
     window.__REDUX_DEVTOOLS_EXTENSION__
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
       : (args) => args
