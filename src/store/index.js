@@ -7,10 +7,10 @@ import { logger, timeScheduler, botMessage } from "./middlewares";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { getPublicApi } from "../api/gists";
+import { getPublicApi, searchGistsByNameApi } from "../api/gists";
 import { gistsReducer } from "./gists";
 
-const api = { getPublicApi };
+const api = { getPublicApi, searchGistsByNameApi };
 
 const persistConfig = {
   key: "gbchat",
