@@ -6,13 +6,13 @@ import {
   GET_MESSAGES_ERROR,
 } from "./types";
 
-const initialState = {
+export const initialState = {
   messages: {},
   error: null,
   pending: false,
 };
 
-export const messagesReducer = (state = initialState, action) => {
+export const messagesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
