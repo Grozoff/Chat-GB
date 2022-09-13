@@ -9,8 +9,22 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { getPublicApi, searchGistsByNameApi } from "../api/gists";
 import { gistsReducer } from "./gists";
+import {
+  createConversationApi,
+  getConversationsApi,
+  removeConversationApi,
+} from "../api/conversations";
+import { getMessagesApi, createMessageApi } from "../api/messages";
 
-const api = { getPublicApi, searchGistsByNameApi };
+const api = {
+  getPublicApi,
+  searchGistsByNameApi,
+  createConversationApi,
+  getConversationsApi,
+  removeConversationApi,
+  getMessagesApi,
+  createMessageApi,
+};
 
 const persistConfig = {
   key: "gbchat",
