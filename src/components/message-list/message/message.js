@@ -2,6 +2,7 @@ import classNames from "classnames";
 import styles from "./message.module.css";
 import { useDispatch } from "react-redux";
 import { deleteMessage } from "../../../store/messages";
+import { format } from "date-fns";
 
 export function Message({ message, roomId }) {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ export function Message({ message, roomId }) {
     >
       <h3>{message.message}</h3>
       <p>{message.author}</p>
-      <p>{message.time}</p>
+      {message?.time && (
+        <p>{format(new Date(message?.time), "yyyy-MM-dd HH:MM:SS")}</p>
+      )}
       <button onClick={() => dispatch(deleteMessage(roomId, message.id))}>
         x
       </button>
